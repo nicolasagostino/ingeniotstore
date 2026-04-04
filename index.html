@@ -6,24 +6,41 @@
   <title>INGENIoT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" href="ingeniot_reducido.png">
+  <link rel="icon" type="image/png" href="ingeniot_reducido.png">
 
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       color: #EAF2FB;
-      background: linear-gradient(180deg, #08111F 0%, #0A1627 100%);
+      background: #08111F;
+    }
+
+    .hero {
+      min-height: 100vh;
+      background-image: url("banner_modulos.jpeg");
+      background-size: cover;
+      background-position: center;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      text-align: center;
     }
 
-    .container {
-      max-width: 700px;
+    .overlay {
+      width: 100%;
+      min-height: 100vh;
+      background: rgba(8, 17, 31, 0.75);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       padding: 20px;
+    }
+
+    .logo {
+      width: 220px;
+      margin-bottom: 30px;
     }
 
     h1 {
@@ -34,6 +51,7 @@
     p {
       color: #9FB3C8;
       line-height: 1.6;
+      max-width: 600px;
     }
 
     .badge {
@@ -44,10 +62,6 @@
       background: rgba(242,140,40,0.1);
       color: #FFB15A;
       font-size: 14px;
-    }
-
-    .logo {
-      margin-bottom: 30px;
     }
 
     .btn {
@@ -67,30 +81,33 @@
 
 <body>
 
-  <div class="container">
+  <section class="hero">
+    <div class="overlay">
 
 
-<div class="badge">Sitio en construcción</div>
+  <div class="badge">Sitio en construcción</div>
 
-<div class="logo">
-  <img src="ingeniot.png" width="220">
+  <img src="ingeniot.png" class="logo" alt="INGENIoT">
+
+  <h1>Algo está llegando.</h1>
+
+  <p>
+    Muy pronto vas a encontrar en esta web la presentación oficial de INGENIoT,
+    con información sobre nuestros productos y una forma directa de contactarnos.
+  </p>
+
+  <p>
+    Estamos preparando una experiencia simple, técnica y pensada para proyectos reales.
+  </p>
+
+  <a class="btn" href="#">
+    Próximamente...
+  </a>
+
 </div>
 
-<h1>Algo está llegando.</h1>
 
-<p>
-  Muy pronto vas a encontrar acá la presentación oficial de INGENIoT,
-  con información sobre nuestros productos y una forma directa de contactarnos.
-</p>
-
-<p>
-  Estamos preparando una experiencia simple, técnica y pensada para proyectos reales.
-</p>
-
-<a class="btn" href="#">Próximamente</a>
-
-
-  </div>
+  </section>
 
 </body>
 </html>
