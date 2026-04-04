@@ -12,46 +12,45 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      color: #EAF2FB;
       background: #08111F;
+      color: #EAF2FB;
+      text-align: center;
     }
 
-    .hero {
-      min-height: 100vh;
+    /* 🔵 BANNER */
+    .banner {
+      height: 300px;
       background-image: url("banner_modulos.jpeg");
       background-size: cover;
       background-position: center;
+      position: relative;
+    }
+
+    .banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(8, 17, 31, 0.6);
+    }
+
+    .banner-content {
+      position: relative;
+      z-index: 1;
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .overlay {
-      width: 100%;
-      min-height: 100vh;
-      background: rgba(8, 17, 31, 0.75);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
+    .banner img {
+      width: 180px;
     }
 
-    .logo {
-      width: 220px;
-      margin-bottom: 30px;
-    }
-
-    h1 {
-      font-size: 42px;
-      margin-bottom: 20px;
-    }
-
-    p {
-      color: #9FB3C8;
-      line-height: 1.6;
-      max-width: 600px;
+    /* 🔵 CONTENIDO */
+    .content {
+      padding: 40px 20px;
+      max-width: 700px;
+      margin: auto;
     }
 
     .badge {
@@ -62,6 +61,16 @@
       background: rgba(242,140,40,0.1);
       color: #FFB15A;
       font-size: 14px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      color: #9FB3C8;
+      line-height: 1.6;
     }
 
     .btn {
@@ -81,33 +90,37 @@
 
 <body>
 
-  <section class="hero">
-    <div class="overlay">
+  <!-- 🔥 BANNER -->
+
+  <div class="banner">
+    <div class="banner-content">
+      <img src="ingeniot.png" alt="INGENIoT">
+    </div>
+  </div>
+
+  <!-- 🔥 CONTENIDO -->
+
+  <div class="content">
 
 
-  <div class="badge">Sitio en construcción</div>
+<div class="badge">Sitio en construcción</div>
 
-  <img src="ingeniot.png" class="logo" alt="INGENIoT">
+<h1>Algo está llegando.</h1>
 
-  <h1>Algo está llegando.</h1>
+<p>
+  Muy pronto vas a encontrar en esta web la presentación oficial de INGENIoT,
+  con información sobre nuestros productos y una forma directa de contactarnos.
+</p>
 
-  <p>
-    Muy pronto vas a encontrar en esta web la presentación oficial de INGENIoT,
-    con información sobre nuestros productos y una forma directa de contactarnos.
-  </p>
+<p>
+  Estamos preparando una experiencia simple, técnica y pensada para proyectos reales.
+</p>
 
-  <p>
-    Estamos preparando una experiencia simple, técnica y pensada para proyectos reales.
-  </p>
+<a class="btn" href="#">
+  Próximamente
+</a>
 
-  <a class="btn" href="#">
-    Próximamente...
-  </a>
-
-</div>
-
-
-  </section>
+  </div>
 
 </body>
 </html>
