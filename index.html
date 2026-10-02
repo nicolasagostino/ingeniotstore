@@ -1,133 +1,218 @@
 <!DOCTYPE html>
-
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>INGENIoT</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <title>INGENIoT | IoT Lab &amp; Store</title>
+  <meta name="description" content="INGENIoT: tienda de componentes electrónicos e IoT, y desarrollos a medida: PCB, firmware, impresión 3D, soluciones industriales y sistemas.">
   <link rel="icon" type="image/png" href="ingeniot_reducido.png">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #08111F;
-      color: #EAF2FB;
-      text-align: center;
-    }
+  <meta property="og:title" content="INGENIoT | IoT Lab & Store">
+  <meta property="og:description" content="Componentes electrónicos y desarrollos a medida. Un equipo de ingeniería detrás de cada proyecto.">
+  <meta property="og:image" content="https://ingeniotstore.com.ar/ingeniot_reducido.png">
 
-    /* 🔵 BANNER */
-    .banner {
-      height: 250px; /* más alto que antes */
-      background-image: url("banner_modulos.jpeg");
-      background-size: cover;
-      background-position: center;
-      position: relative;
-    }
-
-    .banner::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(8, 17, 31, 0.65); /* un poco más oscuro */
-    }
-
-    /* 🔵 CONTENIDO */
-    .content {
-      padding: 40px 20px;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    /* 🔵 LOGO */
-    .logo {
-      width: 300px;
-      max-width: 90%;
-      margin-bottom: 20px;
-    }
-
-    .badge {
-      display: inline-block;
-      margin-bottom: 20px;
-      padding: 6px 14px;
-      border-radius: 20px;
-      background: rgba(242,140,40,0.1);
-      color: #FFB15A;
-      font-size: 14px;
-    }
-
-    h1 {
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
-
-    p {
-      color: #9FB3C8;
-      line-height: 1.6;
-    }
-
-    .btn {
-      margin-top: 25px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 20px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      background: linear-gradient(135deg, #F28C28, #FFB15A);
-      color: #08111F;
-      transition: 0.2s;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-    }
-
-    .icon {
-      width: 18px;
-    }
-
-  </style>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-  <!-- 🔥 BANNER -->
+  <!-- ===== ENCABEZADO ===== -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#inicio" class="brand"><img src="ingeniot.png" alt="INGENIoT IoT Lab & Store"></a>
+      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav">
+        <a href="#servicios">Qué hacemos</a>
+        <a href="#nosotros">Quiénes somos</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#tienda" class="nav-store">Tienda</a>
+      </nav>
+    </div>
+  </header>
 
-  <div class="banner"></div>
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="inicio">
+    <div class="container hero-inner">
+      <span class="badge">IoT Lab &amp; Store</span>
+      <h1>Componentes y desarrollo electrónico<br><span class="accent">para proyectos reales</span></h1>
+      <p class="lead">
+        Somos una tienda de electrónica y un laboratorio de desarrollo.
+        Te acercamos los componentes que necesitás y te acompañamos a convertir tu idea
+        en un producto que funciona.
+      </p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn btn-primary">Contanos tu proyecto</a>
+        <a href="#tienda" class="btn btn-ghost">Ver la tienda</a>
+      </div>
+    </div>
+  </section>
 
-  <!-- 🔥 CONTENIDO -->
+  <!-- ===== DOS PILARES ===== -->
+  <section class="pillars container">
+    <article class="pillar">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="1.5"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg>
+      </div>
+      <h2>Tienda de componentes</h2>
+      <p>Placas ESP32 y Arduino, sensores, módulos, displays y accesorios. Seleccionados y probados, con servicio post-venta técnico.</p>
+    </article>
+    <article class="pillar">
+      <div class="pillar-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z"/></svg>
+      </div>
+      <h2>Desarrollo y asesoramiento</h2>
+      <p>Diseñamos soluciones electrónicas a medida: desde el prototipo hasta la implementación, para particulares, emprendedores e industria.</p>
+    </article>
+  </section>
 
-  <div class="content">
+  <!-- ===== SERVICIOS ===== -->
+  <section class="section" id="servicios">
+    <div class="container">
+      <header class="section-head">
+        <span class="kicker">Qué hacemos</span>
+        <h2>Un equipo, muchas soluciones</h2>
+        <p>Trabajamos con ingenieros y técnicos especializados en cada área para resolver tu proyecto de punta a punta.</p>
+      </header>
 
-    
-<!-- LOGO -->
-<img src="ingeniot.png" alt="INGENIoT" class="logo">
+      <div class="cards">
+        <article class="card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v10H3z"/><circle cx="7" cy="12" r="1.5"/><path d="M8.5 12H13l2-2h3M13 12l2 2h3"/></svg>
+          <h3>Componentes electrónicos</h3>
+          <p>Stock variado para tus proyectos de IoT, robótica y automatización, con asesoramiento para elegir lo que necesitás.</p>
+        </article>
+        <article class="card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8" cy="8" r="1.5"/><circle cx="16" cy="16" r="1.5"/><path d="M9.5 8H14v6.5"/></svg>
+          <h3>Diseño de PCB y firmware</h3>
+          <p>Diseño de circuitos y placas, programación de microcontroladores y prototipos funcionales.</p>
+        </article>
+        <article class="card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M12 12l8-4.5M12 12v9M12 12L4 7.5"/></svg>
+          <h3>Impresión 3D</h3>
+          <p>Diseño e impresión de gabinetes, soportes, repuestos y piezas a medida.</p>
+        </article>
+        <article class="card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21V10l5 3V10l5 3V6l8 4v11z"/><path d="M7 17h2M12 17h2M17 17h2"/></svg>
+          <h3>Soluciones industriales</h3>
+          <p>Automatización, monitoreo de variables y adecuación de equipos para procesos productivos.</p>
+        </article>
+        <article class="card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="1.5"/><path d="M8 21h8M12 17v4M8 9l-2 2 2 2M16 9l2 2-2 2M13 8l-2 6"/></svg>
+          <h3>Desarrollo de sistemas</h3>
+          <p>Software, aplicaciones web y paneles de control para conectar tus dispositivos y datos.</p>
+        </article>
+        <article class="card">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.4A8 8 0 1 1 21 12z"/><path d="M9 10h6M9 14h4"/></svg>
+          <h3>Asesoramiento técnico</h3>
+          <p>Te ayudamos a definir la mejor solución antes de invertir: componentes, arquitectura y costos.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-    
+  <!-- ===== QUIÉNES SOMOS ===== -->
+  <section class="section section-alt" id="nosotros">
+    <div class="container about">
+      <div class="about-text">
+        <span class="kicker">Quiénes somos</span>
+        <h2>Ingeniería detrás de cada producto</h2>
+        <p>
+          INGENIoT nace de un equipo de ingeniería con años de experiencia en el desarrollo
+          de electrónica, sistemas embebidos y soluciones para la industria.
+        </p>
+        <p>
+          Creemos que un buen proyecto empieza por los componentes correctos y sigue con
+          alguien que sepa acompañarte. Por eso combinamos una tienda con un laboratorio:
+          para que encuentres lo que necesitás y, si hace falta, lo desarrollemos juntos.
+        </p>
+      </div>
+      <ul class="values">
+        <li><strong>Enfoque técnico</strong><span>Cada consulta la responde alguien que sabe de electrónica.</span></li>
+        <li><strong>Atención directa</strong><span>Hablás con el equipo, sin intermediarios.</span></li>
+        <li><strong>Soluciones a medida</strong><span>Nos adaptamos a la escala de tu proyecto.</span></li>
+      </ul>
+    </div>
+  </section>
 
-<h1>Algo está llegando.</h1>
+  <!-- ===== TIENDA ===== -->
+  <section class="section" id="tienda">
+    <div class="container store-cta">
+      <div>
+        <span class="kicker">Tienda online</span>
+        <h2>Nuestra tienda está en desarrollo</h2>
+        <p>Muy pronto vas a poder comprar todos nuestros componentes online. Mientras tanto, escribinos y te asesoramos.</p>
+      </div>
+      <a href="#contacto" class="btn btn-primary" id="store-link">
+        <span id="store-link-text">Consultar disponibilidad</span>
+      </a>
+    </div>
+  </section>
 
-<p>
-  Muy pronto vas a encontrar en esta web la presentación oficial de INGENIoT,
-  con información sobre nuestros productos y una forma directa de contactarnos.
-</p>
+  <!-- ===== CONTACTO ===== -->
+  <section class="section section-alt" id="contacto">
+    <div class="container contact">
+      <header class="section-head">
+        <span class="kicker">Contacto</span>
+        <h2>Contanos qué necesitás</h2>
+        <p>Marcá lo que te interesa y escribinos. Te respondemos a la brevedad.</p>
+      </header>
 
-<p>
-  Estamos preparando una experiencia simple, técnica y pensada para proyectos reales.
-</p>
+      <form class="form" id="contact-form" novalidate>
+        <input type="hidden" name="_subject" value="Nueva consulta desde ingeniotstore.com.ar">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none">
+        <div class="form-row">
+          <label>Nombre
+            <input type="text" name="nombre" required autocomplete="name">
+          </label>
+          <label>Email
+            <input type="email" name="email" required autocomplete="email">
+          </label>
+        </div>
+        <label><span>Teléfono <span class="optional">(opcional)</span></span>
+          <input type="tel" name="telefono" autocomplete="tel">
+        </label>
 
-<a class="btn" href="https://www.instagram.com/ingeniot.store/" target="_blank">
-  <img src="ig_logo.png" class="icon">
-  Seguinos!
-</a>
+        <fieldset>
+          <legend>¿Qué te interesa? <span class="optional">Podés marcar más de una opción</span></legend>
+          <div class="checks">
+            <label class="check"><input type="checkbox" name="interes" value="Quiero comprar componentes"><span>Quiero comprar componentes</span></label>
+            <label class="check"><input type="checkbox" name="interes" value="Quiero un desarrollo de PCB"><span>Quiero un desarrollo de PCB</span></label>
+            <label class="check"><input type="checkbox" name="interes" value="Quiero un desarrollo de impresión 3D"><span>Quiero un desarrollo de impresión 3D</span></label>
+            <label class="check"><input type="checkbox" name="interes" value="Quiero un desarrollo industrial"><span>Quiero un desarrollo industrial</span></label>
+            <label class="check"><input type="checkbox" name="interes" value="Quiero un desarrollo de sistema"><span>Quiero un desarrollo de sistema</span></label>
+          </div>
+        </fieldset>
 
-    
+        <label>Contanos tu consulta o proyecto
+          <textarea name="mensaje" rows="5" required></textarea>
+        </label>
 
-  </div>
+        <button type="submit" class="btn btn-primary btn-block">Enviar consulta</button>
+        <p class="form-status" id="form-status" role="status"></p>
+      </form>
+    </div>
+  </section>
 
+  <!-- ===== PIE ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <img src="ingeniot.png" alt="INGENIoT" class="footer-logo">
+      <div class="social">
+        <a href="https://www.instagram.com/ingeniot.store/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.8" class="fill"/></svg>
+        </a>
+        <a href="https://wa.me/5491128269570" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.4A8 8 0 1 1 21 12z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2z"/></svg>
+        </a>
+      </div>
+      <p class="copy">© <span id="year"></span> INGENIoT · IoT Lab &amp; Store</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
