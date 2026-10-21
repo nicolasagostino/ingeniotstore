@@ -121,6 +121,7 @@ img { max-width: 100%; display: block; }
 .card svg { width: 36px; height: 36px; margin-bottom: 14px; fill: none; stroke: var(--orange); stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .card h3 { font-size: 18px; margin-bottom: 8px; }
 .card p { margin: 0; font-size: 15px; }
+@media (min-width: 1081px) { .cards { grid-template-columns: repeat(4, 1fr); } }
 
 /* ===== Quiénes somos ===== */
 .about { display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: center; }
@@ -140,6 +141,7 @@ img { max-width: 100%; display: block; }
 }
 .store-cta p { margin: 0; }
 .store-cta .btn { flex-shrink: 0; }
+#asistente { padding-bottom: 0; }
 
 /* ===== Formulario ===== */
 .contact { max-width: 760px; }
