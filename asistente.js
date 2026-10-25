@@ -35,7 +35,6 @@ const PASOS = [
       { id: "num", t: "Números grandes, tipo reloj", sku: ["DIS-004"] },
       { id: "tft", t: "Pantalla a color", sku: ["DIS-006"] },
       { id: "tactil", t: "Pantalla táctil a color", sku: ["DIS-007"] },
-      { id: "matriz", t: "Cartel de LEDs 8x8", sku: ["DIS-005"] },
       { id: "cel", t: "En el celular, por WiFi", sku: [], wifi: true },
       { id: "leds", t: "Luces indicadoras (LEDs)", sku: ["PAS-001", "PAS-002"] },
       { id: "rgb", t: "Luz de color (RGB)", sku: ["MOD-008"] },
@@ -72,6 +71,7 @@ const PASOS = [
       { id: "auto", t: "Elegila vos (recomendado)", d: "La elegimos según tu proyecto." },
       { id: "PLA-002", t: "ESP32 DevKit", d: "WiFi y Bluetooth. Micro-USB.", sku: ["PLA-002"] },
       { id: "PLA-001", t: "ESP32 con USB-C", d: "WiFi y Bluetooth. USB-C.", sku: ["PLA-001"] },
+      { id: "PLA-004", t: "ESP32-C3 SuperMini", d: "Chiquita y económica. WiFi y Bluetooth 5. USB-C. Menos pines.", sku: ["PLA-004"] },
       { id: "PLA-003", t: "Arduino UNO", d: "La clásica para empezar. 5 V, sin WiFi.", sku: ["PLA-003"] },
     ],
   },
@@ -85,6 +85,12 @@ const PASOS = [
 ];
 const DEFAULT = { placa: ["auto"], energia: ["usb"] };
 const ROL = { medir: "in", controlar: "in", mostrar: "out", hacer: "out" };
+// Pines libres (d) y entradas analógicas usables (a) de cada placa. ESP32: solo ADC1 con WiFi activo.
+const PINES = {
+  "PLA-001": { d: 24, a: 6 }, "PLA-002": { d: 24, a: 6 },
+  "PLA-003": { d: 18, a: 6 },
+  "PLA-004": { d: 11, a: 5 },   // ESP32-C3 SuperMini: GPIO 0-10, 20, 21 (8 y 9 con cuidado); ADC en GPIO 0-4
+};
 
 // ----- Estado -----
 let sel = {};
@@ -94,7 +100,9 @@ const yaTengo = new Set();
 const $ = (id) => document.getElementById(id);
 const pesos = (n) => "$" + Math.round(n).toLocaleString("es-AR");
 const img = (sku) => `img/productos/${sku.toLowerCase()}.jpg`;
-const linkTienda = (sku) => `${TIENDA_PRODUCTO}${sku.toLowerCase()}/`;
+// En la tienda algunos SKU son variantes de un mismo producto (cables y buzzers)
+const URL_TIENDA = { "ACC-004": "acc-003", "ACC-005": "acc-003", "ACC-014": "acc-013" };
+const linkTienda = (sku) => `${TIENDA_PRODUCTO}${URL_TIENDA[sku] || sku.toLowerCase()}/`;
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 const ICONO_CEL = `<svg viewBox="0 0 24 24" class="as-ico"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10.5 18.5h3"/><path d="M9 8.5a4.5 4.5 0 0 1 6 0M10.5 10.5a2 2 0 0 1 3 0"/></svg>`;
@@ -176,12 +184,26 @@ function calcular() {
   const wifi = PASOS.some((p) => p.opciones.some((o) => o.wifi && op(p.id, o.id)));
   const pila = op("energia", "pila");
 
+  // Pines que necesitan los componentes elegidos (para elegir la placa)
+  const elegidos = PASOS.filter((p) => ROL[p.id]).flatMap((p) => p.opciones.filter((o) => op(p.id, o.id)).flatMap((o) => o.sku));
+  const pre = { s: 0, a: 0 };
+  for (const s of new Set(elegidos)) { pre.s += CATALOGO[s].s || 0; pre.a += CATALOGO[s].a || 0; }
+  if (elegidos.some((s) => CATALOGO[s].bus === "i2c")) pre.s += 2;
+  if (elegidos.some((s) => CATALOGO[s].bus === "spi")) pre.s += 3;
+  const entraEnC3 = pre.s <= PINES["PLA-004"].d - 2 && pre.a <= PINES["PLA-004"].a - 1;   // con margen
+
   // Placa
   let placa = (sel.placa || ["auto"])[0];
-  if (placa === "auto") placa = pila && !wifi ? "PLA-003" : "PLA-002";
+  if (placa === "auto") {
+    if (pila && !wifi) placa = "PLA-003";
+    else if (entraEnC3) {
+      placa = "PLA-004";
+      notas.push(["ok", "Elegimos la ESP32-C3 SuperMini: tu proyecto usa pocos pines y es la placa más chica y económica. Si pensás sumarle más cosas, la ESP32 DevKit tiene más pines."]);
+    } else placa = "PLA-002";
+  }
   if (placa === "PLA-003" && wifi) {
     notas.push(["info", "Elegiste Arduino UNO, pero verlo o controlarlo desde el celular necesita WiFi: te sugerimos un ESP32."]);
-    placa = "PLA-002";
+    placa = entraEnC3 ? "PLA-004" : "PLA-002";
   }
   const esp = placa !== "PLA-003";
   add(placa, "placa", "El cerebro del proyecto");
@@ -254,13 +276,14 @@ function calcular() {
     if (c.bus === "spi") spi = true;
   }
   senales += (i2c ? 2 : 0) + (spi ? 3 : 0);
-  const maxPines = esp ? 24 : 18;
-  if (senales > maxPines)
-    notas.push(["warn", `Tu proyecto usa unos ${senales} pines y la placa tiene ${maxPines} libres. Se resuelve con expansores (por ejemplo un 74HC595): consultanos y lo vemos juntos.`]);
-  if (esp && wifi && analog > 6)
-    notas.push(["warn", `Con WiFi activo el ESP32 tiene 6 entradas analógicas disponibles y tu proyecto usa ${analog}. Consultanos para reorganizarlas.`]);
-  if (!esp && analog > 6)
-    notas.push(["warn", `El Arduino UNO tiene 6 entradas analógicas y tu proyecto usa ${analog}.`]);
+  const lim = PINES[placa];
+  if (senales > lim.d)
+    notas.push(["warn", `Tu proyecto usa unos ${senales} pines y la placa tiene ${lim.d} libres. ` +
+      (placa === "PLA-004" ? "Te conviene la ESP32 DevKit, que tiene más pines." : "Se resuelve con expansores (por ejemplo un 74HC595): consultanos y lo vemos juntos.")]);
+  if (analog > lim.a)
+    notas.push(["warn", `La placa tiene ${lim.a} entradas analógicas disponibles${esp ? " con WiFi activo" : ""} y tu proyecto usa ${analog}. Consultanos para reorganizarlas.`]);
+  if (placa === "PLA-004")
+    notas.push(["info", "La ESP32-C3 se programa por USB-C. En Arduino IDE elegí \"ESP32C3 Dev Module\" y activá \"USB CDC On Boot\" para ver el Monitor serie."]);
 
   // Protoboard y cables (estimación con margen)
   const lista = [...items.values()].map((it) => ({ ...it, c: CATALOGO[it.sku] }));
@@ -297,7 +320,7 @@ function calcular() {
   // Cable y alimentación
   if (placa === "PLA-002") add("ACC-007", "con", "Para programar y alimentar la placa");
   if (placa === "PLA-003") add("ACC-006", "con", "Para programar y alimentar la placa");
-  if (placa === "PLA-001") notas.push(["info", "La placa con USB-C se programa con un cable USB-C de datos (como el de muchos celulares)."]);
+  if (placa === "PLA-001" || placa === "PLA-004") notas.push(["info", "La placa con USB-C se programa con un cable USB-C de datos (como el de muchos celulares)."]);
   if (pila) {
     if (!esp) add("ACC-008", "con", "Para alimentar el Arduino con una pila de 9 V");
     else notas.push(["info", "El ESP32 consume más que un Arduino: para hacerlo portátil conviene una batería recargable con regulador. Consultanos."]);

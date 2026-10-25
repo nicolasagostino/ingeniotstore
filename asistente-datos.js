@@ -4,21 +4,28 @@ const CATALOGO = {
 "n": "ESP32 USB-C (38 pines)",
 "i": "WiFi + Bluetooth",
 "m": "placa",
-"p": 15190,
+"p": 13690,
 "img": true
 },
 "PLA-002": {
 "n": "ESP32 DevKit (38 pines)",
 "i": "WiFi + Bluetooth",
 "m": "placa",
-"p": 15190,
+"p": 13690,
 "img": true
 },
 "PLA-003": {
 "n": "Arduino UNO R3",
 "i": "5 V",
 "m": "placa",
-"p": 11790,
+"p": 10690,
+"img": true
+},
+"PLA-004": {
+"n": "ESP32-C3 SuperMini",
+"i": "WiFi + Bluetooth 5",
+"m": "placa",
+"p": 7190,
 "img": true
 },
 "SEN-002": {
@@ -27,7 +34,7 @@ const CATALOGO = {
 "s": 1,
 "m": "mod",
 "w": 3,
-"p": 2290,
+"p": 3290,
 "img": true
 },
 "SEN-006": {
@@ -35,7 +42,7 @@ const CATALOGO = {
 "i": "1-Wire",
 "s": 1,
 "m": "pb",
-"p": 10390,
+"p": 4490,
 "img": true
 },
 "SEN-015": {
@@ -43,7 +50,7 @@ const CATALOGO = {
 "i": "1-Wire",
 "s": 1,
 "m": "pb",
-"p": 2590,
+"p": 3090,
 "img": true
 },
 "SEN-005": {
@@ -52,7 +59,7 @@ const CATALOGO = {
 "s": 1,
 "a": 1,
 "m": "pb",
-"p": 5590,
+"p": 3090,
 "img": true
 },
 "SEN-003": {
@@ -61,7 +68,7 @@ const CATALOGO = {
 "s": 1,
 "m": "mod",
 "w": 3,
-"p": 3590,
+"p": 3690,
 "img": true
 },
 "SEN-017": {
@@ -70,7 +77,7 @@ const CATALOGO = {
 "s": 2,
 "m": "mod",
 "w": 4,
-"p": 3290,
+"p": 3690,
 "img": true
 },
 "SEN-011": {
@@ -79,7 +86,7 @@ const CATALOGO = {
 "s": 1,
 "m": "mod",
 "w": 3,
-"p": 2290,
+"p": 2190,
 "img": true
 },
 "SEN-010": {
@@ -88,7 +95,7 @@ const CATALOGO = {
 "s": 1,
 "m": "mod",
 "w": 3,
-"p": 2190,
+"p": 2590,
 "img": true
 },
 "SEN-013": {
@@ -98,7 +105,7 @@ const CATALOGO = {
 "a": 1,
 "m": "mod",
 "w": 3,
-"p": 6290,
+"p": 2490,
 "img": true
 },
 "SEN-016": {
@@ -107,7 +114,7 @@ const CATALOGO = {
 "s": 1,
 "m": "mod",
 "w": 3,
-"p": 3090,
+"p": 2690,
 "img": true
 },
 "SEN-012": {
@@ -115,7 +122,7 @@ const CATALOGO = {
 "i": "Digital",
 "s": 1,
 "m": "pb",
-"p": 1390,
+"p": 1690,
 "img": true
 },
 "SEN-007": {
@@ -125,7 +132,7 @@ const CATALOGO = {
 "a": 1,
 "m": "mod",
 "w": 3,
-"p": 4490,
+"p": 3590,
 "img": true
 },
 "SEN-008": {
@@ -135,7 +142,7 @@ const CATALOGO = {
 "a": 1,
 "m": "mod",
 "w": 3,
-"p": 14790,
+"p": 4990,
 "img": true
 },
 "SEN-018": {
@@ -145,7 +152,7 @@ const CATALOGO = {
 "a": 1,
 "m": "mod",
 "w": 3,
-"p": 4490,
+"p": 4690,
 "img": true
 },
 "SEN-014": {
@@ -154,16 +161,15 @@ const CATALOGO = {
 "s": 1,
 "m": "mod",
 "w": 3,
-"p": 1790,
+"p": 2390,
 "img": true
 },
 "SEN-004": {
-"n": "Receptor infrarrojo",
+"n": "Receptor infrarrojo VS1838B",
 "i": "Digital",
 "s": 1,
-"m": "mod",
-"w": 3,
-"p": 2690,
+"m": "pb",
+"p": 2490,
 "img": true
 },
 "MOD-003": {
@@ -173,7 +179,7 @@ const CATALOGO = {
 "bus": "spi",
 "m": "mod",
 "w": 7,
-"p": 5890,
+"p": 4690,
 "img": true
 },
 "MOD-004": {
@@ -182,7 +188,7 @@ const CATALOGO = {
 "s": 3,
 "m": "mod",
 "w": 5,
-"p": 3890,
+"p": 4390,
 "img": true
 },
 "DIS-001": {
@@ -192,7 +198,7 @@ const CATALOGO = {
 "bus": "i2c",
 "m": "mod",
 "w": 4,
-"p": 7790,
+"p": 6990,
 "img": true
 },
 "DIS-002": {
@@ -201,7 +207,7 @@ const CATALOGO = {
 "s": 6,
 "m": "mod",
 "w": 12,
-"p": 4990,
+"p": 5790,
 "img": true
 },
 "DIS-004": {
@@ -220,7 +226,7 @@ const CATALOGO = {
 "bus": "spi",
 "m": "mod",
 "w": 5,
-"p": 4490,
+"p": 6390,
 "img": true
 },
 "DIS-006": {
@@ -240,7 +246,7 @@ const CATALOGO = {
 "bus": "spi",
 "m": "mod",
 "w": 14,
-"p": 47490,
+"p": 28190,
 "img": true
 },
 "DIS-003": {
@@ -248,7 +254,7 @@ const CATALOGO = {
 "i": "8 pines",
 "s": 8,
 "m": "pb",
-"p": 1890,
+"p": 2790,
 "img": true
 },
 "MOD-008": {
@@ -257,7 +263,7 @@ const CATALOGO = {
 "s": 3,
 "m": "mod",
 "w": 4,
-"p": 2690,
+"p": 2290,
 "img": true
 },
 "PAS-001": {
@@ -289,7 +295,7 @@ const CATALOGO = {
 "i": "Digital",
 "s": 1,
 "m": "pb",
-"p": 1790,
+"p": 3690,
 "img": true
 },
 "ACC-014": {
@@ -297,7 +303,7 @@ const CATALOGO = {
 "i": "PWM",
 "s": 1,
 "m": "pb",
-"p": 2290,
+"p": 1890,
 "img": true
 },
 "MOD-007": {
@@ -306,7 +312,7 @@ const CATALOGO = {
 "s": 2,
 "m": "mod",
 "w": 4,
-"p": 6990,
+"p": 4290,
 "img": true
 },
 "MOD-001": {
@@ -315,7 +321,7 @@ const CATALOGO = {
 "s": 1,
 "m": "mod",
 "w": 3,
-"p": 4790,
+"p": 3490,
 "img": true
 },
 "MOD-002": {
@@ -324,7 +330,7 @@ const CATALOGO = {
 "s": 2,
 "m": "mod",
 "w": 4,
-"p": 7290,
+"p": 4490,
 "img": true
 },
 "MOT-001": {
@@ -334,14 +340,14 @@ const CATALOGO = {
 "m": "mod",
 "w": 3,
 "fem": true,
-"p": 3190,
+"p": 4590,
 "img": true
 },
 "MOT-002": {
 "n": "Motor paso a paso 28BYJ-48",
 "i": "Al driver",
 "m": "no",
-"p": 9990,
+"p": 4190,
 "img": true
 },
 "MOT-003": {
@@ -358,7 +364,7 @@ const CATALOGO = {
 "i": "Digital",
 "s": 2,
 "m": "pb",
-"p": 2690,
+"p": 1690,
 "img": true
 },
 "ACC-009": {
@@ -367,7 +373,7 @@ const CATALOGO = {
 "s": 2,
 "m": "mod",
 "w": 4,
-"p": 5290,
+"p": 3990,
 "img": true
 },
 "MOD-006": {
@@ -376,8 +382,7 @@ const CATALOGO = {
 "s": 8,
 "m": "mod",
 "w": 8,
-"fem": true,
-"p": 5490,
+"p": 2390,
 "img": true
 },
 "PAS-008": {
@@ -386,7 +391,7 @@ const CATALOGO = {
 "s": 1,
 "a": 1,
 "m": "pb",
-"p": 2290,
+"p": 4890,
 "img": true
 },
 "MOD-005": {
@@ -396,62 +401,62 @@ const CATALOGO = {
 "a": 2,
 "m": "mod",
 "w": 5,
-"p": 3190,
+"p": 2790,
 "img": true
 },
 "ACC-012": {
 "n": "Control remoto IR",
 "i": "Infrarrojo",
 "m": "no",
-"p": 1590,
+"p": 2690,
 "img": true
 },
 "ACC-001": {
 "n": "Protoboard 830 puntos",
 "m": "acc",
-"p": 4190,
+"p": 3390,
 "img": true
 },
 "ACC-011": {
 "n": "Protoboard 400 puntos",
 "m": "acc",
-"p": 6690,
+"p": 2690,
 "img": true
 },
 "ACC-003": {
 "n": "Cables macho-macho x10",
 "m": "acc",
-"p": 1890,
+"p": 990,
 "img": true
 },
 "ACC-004": {
 "n": "Cables macho-hembra x10",
 "m": "acc",
-"p": 1890,
+"p": 690,
 "img": true
 },
 "ACC-005": {
 "n": "Cables hembra-hembra x10",
 "m": "acc",
-"p": 1890,
+"p": 990,
 "img": true
 },
 "ACC-006": {
 "n": "Cable USB para Arduino UNO",
 "m": "acc",
-"p": 2590,
+"p": 3590,
 "img": true
 },
 "ACC-007": {
 "n": "Cable Micro-USB de datos",
 "m": "acc",
-"p": 5290,
+"p": 3790,
 "img": true
 },
 "ACC-008": {
 "n": "Adaptador pila 9 V",
 "m": "acc",
-"p": 2290,
+"p": 3090,
 "img": true
 },
 "PAS-005": {
