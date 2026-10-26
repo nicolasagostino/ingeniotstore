@@ -218,3 +218,25 @@ legend { font-weight: 500; font-size: 15px; margin-bottom: 12px; }
   .store-cta { flex-direction: column; align-items: flex-start; padding: 28px; }
   .store-cta .btn { width: 100%; }
 }
+
+/* ===== Botón flotante de WhatsApp ===== */
+.wa-float {
+  position: fixed; right: 20px; bottom: 20px; z-index: 50;
+  display: flex; align-items: center; gap: 10px; text-decoration: none;
+}
+.wa-float-icon {
+  width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center;
+  background: #25D366; box-shadow: 0 8px 24px rgba(0,0,0,.35); transition: transform .15s;
+}
+.wa-float-icon svg { width: 30px; height: 30px; fill: #fff; }
+.wa-float-label {
+  background: var(--surface); color: var(--text); border: 1px solid var(--border);
+  padding: 8px 14px; border-radius: 999px; font-size: 14px; font-weight: 600;
+  box-shadow: 0 8px 24px rgba(0,0,0,.3); white-space: nowrap;
+}
+.wa-float:hover .wa-float-icon { transform: scale(1.08); }
+@media (max-width: 720px) {
+  .wa-float { right: 14px; bottom: 14px; }
+  .wa-float-label { display: none; }   /* en el celular, solo el ícono */
+  .wa-float-icon { width: 52px; height: 52px; }
+}

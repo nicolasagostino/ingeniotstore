@@ -1,6 +1,6 @@
 // ===== Configuración =====
 // Cuando la tienda esté lista, poner la URL acá y el botón pasa a "Ir a la tienda".
-const STORE_URL = "";            // ej: "https://ingeniot.mitiendanube.com"
+const STORE_URL = "https://ingeniot.mitiendanube.com";
 // Servicio de formularios (Formspree, Web3Forms, etc.). Vacío = la consulta se envía por WhatsApp.
 const FORM_ENDPOINT = "https://formspree.io/f/mdekvrbr";
 const WHATSAPP = "5491128269570";

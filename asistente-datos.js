@@ -356,7 +356,7 @@ const CATALOGO = {
 "s": 4,
 "m": "mod",
 "w": 6,
-"p": null,
+"p": 3190,
 "img": true
 },
 "ACC-010": {
