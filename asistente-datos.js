@@ -208,7 +208,7 @@ const CATALOGO = {
 "bus": "i2c",
 "m": "mod",
 "w": 4,
-"p": 5790,
+"p": 6790,
 "img": true
 },
 "DIS-004": {
