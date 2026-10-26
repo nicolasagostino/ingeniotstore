@@ -224,10 +224,8 @@ function calcular() {
   const tiene = (s) => items.has(s);
   if (tiene("PAS-001") || tiene("PAS-002"))
     add("PAS-005", "con", "Una resistencia de 220 Ω en serie con cada LED");
-  if (tiene("DIS-002")) {
-    add("PAS-008", "con", "Ajuste de contraste del display LCD", { sumar: true });
-    if (esp) notas.push(["info", "El LCD 16x2 se alimenta con 5 V (pin VIN del ESP32) y funciona con las señales de 3,3 V conectando RW a GND."]);
-  }
+  if (tiene("DIS-002") && esp)
+    notas.push(["info", "El LCD 16x2 I2C se alimenta con 5 V (pin VIN o 5V de la placa); las señales I2C de 3,3 V funcionan bien."]);
   if (tiene("SEN-006") || tiene("SEN-015")) {
     add("PAS-007", "con", "Pull-up del bus 1-Wire");
     notas.push(["info", "El DS18B20 necesita una resistencia de pull-up de 4,7 kΩ entre datos y VCC: dos de 10 kΩ en paralelo (≈ 5 kΩ) funcionan perfecto."]);

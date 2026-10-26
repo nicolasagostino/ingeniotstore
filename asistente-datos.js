@@ -202,11 +202,12 @@ const CATALOGO = {
 "img": true
 },
 "DIS-002": {
-"n": "Display LCD 16x2",
-"i": "Paralelo 4 bits",
-"s": 6,
+"n": "Display LCD 16x2 I2C",
+"i": "I2C",
+"s": 0,
+"bus": "i2c",
 "m": "mod",
-"w": 12,
+"w": 4,
 "p": 5790,
 "img": true
 },
